@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent-color: #ff9800;
+  --accent2-color: #f57c00;
+  --accent3-color: #ffca28;
+  --accent4-color: #ffe082;
+  --primary-color: #346cb0;
+  --dark-text-color: #212121;
+  --gray-text-color: #737373;
+  --button-padding-x: 16px;
+  --button-padding-y: 12px;
+  --light-text-color: #ffffff;
+  --dark-border-color: #0d47a1;
+  --light-border-color: #c8d6e5;
+  --button-rounded-radius: 8px;
+  --dark-background-color: #111111;
+  --light-background-color: #eaf3ff;
+  --medium-background-color: #cde2ff;
+  --primary-button-bg-color: #346cb0;
+  --primary-button-text-color: #ffffff;
+  --secondary-button-bg-color: #e3e3e3;
+  --secondary-button-text-color: #346cb0;
+  --primary-button-hover-bg-color: #295792;
+  --primary-button-hover-text-color: #ffffff;
+  --secondary-button-hover-bg-color: #c7c7c7;
+  --secondary-button-hover-text-color: #346cb0;
+}
+
+@layer base {
+  html {
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    /* background-color:#252423; */
+    background-color: #1e2023;
+  }
+
+  ::-webkit-scrollbar {
+    height: 10px;
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    height: 80px;
+    background-color: var(--dark-border-color);
+  }
+
+  .fixedNav svg {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .fixedNav a:hover > svg {
+    stroke: #1d3557;
+  }
+  .active {
+    background-color: #f1faee;
+  }
+  .active-svg svg {
+    stroke: #1d3557;
+  }
+  .subscribe:hover > .subscribeIcon svg {
+    stroke: #1d3557;
+  }
+
+  .modal-open {
+    overflow: hidden;
+  }
+}
