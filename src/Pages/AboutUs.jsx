@@ -1,5 +1,3 @@
-import React from "react";
-
 const AboutUs = () => {
   return (
     <section className="bg-gradient-to-b from-[#ffffff] to-light-background-color py-16">
