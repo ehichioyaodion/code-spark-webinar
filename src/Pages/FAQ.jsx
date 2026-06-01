@@ -11,7 +11,7 @@ const FAQ = () => {
         "This webinar is perfect for entrepreneurs, small business owners, marketers, designers, project managers, and anyone interested in building digital solutions without learning to code. Whether you're a complete beginner or have some technical background, you'll find value in learning how to bring your ideas to life with no-code tools.",
     },
     {
-      question: "What Will I Learn in This Webinar?",
+      question: "What Will I Learn in This Webinar?111222333",
       answer:
         "In this webinar, you'll learn the fundamentals of no-code development and how to use no-code platforms to build websites, applications, and software. We'll cover key concepts, popular no-code tools, and practical examples to get you started on your no-code journey. You'll gain the knowledge and confidence to begin creating your own projects immediately.",
     },
