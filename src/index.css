@@ -51,6 +51,7 @@
 
   ::-webkit-scrollbar-thumb {
     border-radius: 4px;
+    
     height: 80px;
     background-color: var(--dark-border-color);
   }
