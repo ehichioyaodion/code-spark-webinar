@@ -36,7 +36,7 @@ The repository isolates logic structures into standard modular trees:
 ├── index.html              # Main HTML mounting container
 ├── package.json            # Node dependency mapping script
 └── vite.config.js          # Core engine compilation settings
-
+```
 ## 🛠️ Local Installation & Launch Blueprint
 
 ​Follow these commands to clone the source and run the native development server locally on your machine:
