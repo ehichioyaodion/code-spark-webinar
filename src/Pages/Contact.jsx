@@ -164,16 +164,8 @@ const Contact = () => {
               </h2>
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-bold text-gray-700">Address</h3>
-                  <p className="text-gray-600">
-                    123 Main Street, Accra
-                    <br />
-                    Greater Accra Region, Ghana
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-700">Phone</h3>
-                  <p className="text-gray-600">+233 123 456 7890</p>
+                  <h3 className="font-bold text-gray-700">Phone &amp; Whatsapp</h3>
+                  <p className="text-gray-600">+233 533 053 687</p>
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-700">Email</h3>
@@ -182,9 +174,7 @@ const Contact = () => {
                 <div>
                   <h3 className="font-bold text-gray-700">Business Hours</h3>
                   <p className="text-gray-600">
-                    Monday - Friday: 9:00 AM - 5:00 PM
-                    <br />
-                    Saturday: 10:00 AM - 2:00 PM
+                    Monday - Saturday: 24hours
                     <br />
                     Sunday: Closed
                   </p>

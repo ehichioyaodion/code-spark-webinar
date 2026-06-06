@@ -1,54 +1,55 @@
 const FAQ = () => {
   const faqData = [
     {
-      question: "What is No-Code Development?",
+      question: "What is CODE SPARK?",
       answer:
-        "No-code development allows you to create software, websites, and applications without writing traditional code. It uses visual interfaces and drag-and-drop tools, making technology creation accessible to everyone, regardless of coding experience.",
+        "CODE SPARK is a live, fast-paced technical workshop designed to break down the barriers of software engineering. We teach absolute beginners, kids, and tech enthusiasts how to build real websites, apps, and software from scratch by understanding the fundamental logic of clean, practical code.",
     },
     {
       question: "Who is this Webinar For?",
       answer:
-        "This webinar is perfect for entrepreneurs, small business owners, marketers, designers, project managers, and anyone interested in building digital solutions without learning to code. Whether you're a complete beginner or have some technical background, you'll find value in learning how to bring your ideas to life with no-code tools.",
+        "This webinar is engineered for two distinct groups Absolute Beginners and Young Learners Anyone (including teenagers and kids) who wants to learn how computers think and start writing real code through highly visual, instant-feedback micro-projects.Advanced Enthusiasts: Aspiring developers and creators who want to see how a clean project structure, modular code, and modern tools can speed up their deployment workflows compared to heavy, restrictive no-code editors.",
     },
     {
       question: "What Will I Learn in This Webinar?",
       answer:
-        "In this webinar, you'll learn the fundamentals of no-code development and how to use no-code platforms to build websites, applications, and software. We'll cover key concepts, popular no-code tools, and practical examples to get you started on your no-code journey. You'll gain the knowledge and confidence to begin creating your own projects immediately.",
+        "You will learn the core building blocks of modern web and application development. We will write live HTML (the structural bones), CSS (the layout and style), and JavaScript (the interactive logic) to build a fully functional application. By the end of the 60 minutes, you will know how to deploy and host your code live on the web for anyone in the world to see.",
     },
     {
       question: "Do I Need Any Prior Coding Knowledge?",
       answer:
-        "No coding knowledge is required at all! This webinar is specifically designed for individuals with no coding experience. We'll guide you through everything step-by-step, ensuring you can follow along and understand the concepts regardless of your technical background.",
+        "Not at all! This session is built specifically to handle absolute beginners. We don't start with dry, complicated computer science textbooks—we jump straight into interactive code blocks that make sense from the very first line. If you can type on a keyboard, you can follow along perfectly.",
     },
     {
       question: "What Tools and Platforms Will Be Covered?",
       answer:
-        "We will introduce you to a range of popular and powerful no-code platforms suitable for building various types of applications. While we may focus on a few key tools for demonstration, the principles you learn will be applicable across many no-code platforms available today. Specific tools might include platforms for web development, app creation, and automation, depending on the webinar's focus.",
+        "To keep things simple, we won't make you install heavy desktop software or struggle with system configurations. We will be coding live inside highly optimized, browser-based coding sandboxes (like StackBlitz, CodePen, or Replit). Everything runs straight from your internet browser.",
     },
     {
       question: "Is the Webinar Live or Recorded?",
       answer:
-        "This webinar is a live online session, allowing you to interact with the instructor in real-time, ask questions, and get immediate clarifications.  There will also be a recording of the webinar available to all registered participants for review and catch-up at their convenience.",
+        "This is a 100% Live interactive online session hosted via Google Meet. You will be able to watch our expert instructors code in real-time, ask questions in the chat, and get immediate debugging help.",
     },
     {
       question: "How Do I Register for the Webinar?",
       answer:
-        "Registration is simple! Just click on the 'Register Now' button on this page and fill out the registration form with your details. You'll receive a confirmation email with all the information you need to join the webinar session.",
+        "Registration is fully automated. Click the 'Register Now' button to open our secure payment gateway. You can easily process your ₵50 registration using Mobile Money (MoMo) or a bank card. ⚠️ Note: Once payment is successful, do not close your browser! You will be automatically redirected straight into our private WhatsApp Cohort Group.",
+        // make correct listing or break line on the NOte warnings
     },
     {
       question: "Is There a Cost to Attend the Webinar?",
       answer:
-        "Information regarding the cost, if any, will be clearly stated on the registration page and in our promotional materials. Please refer to the webinar details to understand if this is a free or paid webinar and what the associated fees are, if any.",
+        "Information regarding the cost, if any, will be clearly stated on the Webinar page and in our promotional materials. Please refer to the webinar details to understand if this is a free or paid webinar and what the associated fees are, if any.",
     },
     {
       question: "Will There Be Any Support After the Webinar?",
       answer:
-        "Yes! We are committed to your learning journey. All participants will have access to a community forum or group where you can ask questions, share your progress, and connect with fellow learners.  We may also offer additional resources and follow-up sessions to support your continued learning.",
+        "Yes! When you register, you join the private eDev starter community group. After the live stream ends, you can use this group to share your modified code projects, get feedback from peers, ask technical questions, and access additional source files or future bootcamp opportunities.",
     },
     {
       question: "What are the Technical Requirements to Join the Webinar?",
       answer:
-        "To join the webinar, you will need a stable internet connection and a device (computer, laptop, tablet, or smartphone) capable of accessing the internet and running video conferencing software (e.g., Zoom, Google Meet, etc. - specific platform details will be provided upon registration). No special software or coding tools are required to participate in the webinar itself.",
+        "All you need is a device with a stable internet connection capable of running video conferencing software (Google Meet). While you can watch and learn from a smartphone or tablet, we highly recommend using a computer or keyboard-enabled device if you want to actively type out the code strings live along with the instructor!",
     },
   ];
 

@@ -8,8 +8,8 @@ const Webinars = () => {
     fullName: "",
     email: "",
     phone: "",
-    webinarTitle: "Introduction to React",
-    price: 49.99,
+    webinarTitle: "Apps, Softwares & Web Development Fundamentals",
+    price: 100,
   });
 
   const handleInputChange = (e) => {
@@ -97,30 +97,6 @@ const Webinars = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
-              <label
-                htmlFor="webinarTitle"
-                className="block text-gray-700 text-sm font-medium mb-1"
-              >
-                Webinar
-              </label>
-              <select
-                id="webinarTitle"
-                className="border-b-2 border-gray-300 w-full py-2 px-1 text-gray-700 focus:outline-none focus:border-blue-500"
-                value={formData.webinarTitle}
-                onChange={handleInputChange}
-              >
-                <option value="Introduction to React">
-                  Introduction to React - $49.99
-                </option>
-                <option value="Advanced JavaScript">
-                  Advanced JavaScript - $69.99
-                </option>
-                <option value="Web Development Fundamentals">
-                  Web Development Fundamentals - $39.99
-                </option>
-              </select>
-            </div>
             <div className="pt-4">
               <button
                 type="submit"
@@ -166,7 +142,7 @@ const Webinars = () => {
               <h4 className="font-medium text-gray-800 mb-2">Order Summary</h4>
               <div className="bg-gray-50 p-4 rounded-md">
                 <div className="flex justify-between mb-2">
-                  <span>Webinar:</span>
+                  <span className="font-medium">Webinar:</span>
                   <span>{formData.webinarTitle}</span>
                 </div>
                 <div className="flex justify-between font-semibold">
