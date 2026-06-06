@@ -44,16 +44,13 @@ The repository isolates logic structures into standard modular trees:
 ​Ensure you have Node.js installed on your operating system.
 
 ​1. Clone the Source Container
-
-git clone https://github.com/ehichioyaodion/code-spark-webinar
+```git clone https://github.com/ehichioyaodion/code-spark-webinar```
 
 2. Hydrate Dependencies
-
-npm install
+```npm install```
 
 3. Spin Up the Local Engine
-
-npm run dev
+```npm run dev```
 
 ​The terminal will display a local address link (usually http://localhost:5173/). Open this link in your browser to interact with the live sandbox code.
 
