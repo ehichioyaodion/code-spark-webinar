@@ -26,7 +26,7 @@ By shifting away from local static file management to a managed build pipeline, 
 
 The repository isolates logic structures into standard modular trees:
 
-```text
+```
 ├── public/                 # Static global assets (Logos, Icons, Data files)
 ├── src/                    # Main development environment
 │   ├── assets/             # Brand graphics and custom styling assets
