@@ -22,7 +22,7 @@ const Header = () => {
               onClick={handleLinkClick}
             >
               <img className="mr-2 w-12 h-12" src={codespark} />
-              <span>CODE SPARK</span>
+              <span>CODE SPARKING</span>
             </Link>
           </div>
           <button
