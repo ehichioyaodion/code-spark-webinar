@@ -77,7 +77,8 @@ document.querySelector('#action-trigger').addEventListener('click', () => {
 
 ​Vite compiles optimized bundles cleanly to any cloud runtime environment:
 
-[Development Workspace] ───(npm run build)───> [/dist Folder Out] ───> [Live Server Edge]
+[Development Workspace]
+``` ───(npm run build)───> [/dist Folder Out] ───> [Live Server Edge]```
 
 To push your web application live manually or via automated CI/CD chains:
 
@@ -90,13 +91,3 @@ To push your web application live manually or via automated CI/CD chains:
 4. ​Click Deploy. Your live production domain link will generate automatically.
 
 ---
-
-### Reference Architecture Images
-
-When users land on this repository, these visuals instantly help them grasp what the project environment looks like behind the scenes:
-
-<Image alt="Dark code screenshot highlighting a clean modular Vite directory layout structure including src assets components main.jsx package.json and index.html" caption="Vite Directory Architecture Guide" src="image_agent_tag_7830788897780894971"/>
-
-By reviewing this layout, students will immediately recognize the difference between messy unorganized local folders and a streamlined industrial project layout. When the final build runs smoothly, it displays a premium, modern dashboard structure on screen:
-
-<Image alt="Sleek dark mode technology website user interface layout featuring premium neon glowing lines blue graphs user data and clear clean metrics" caption="CODE SPARK Live App Output Preview" src="image_agent_tag_7830788893946"/>
