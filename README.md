@@ -59,21 +59,21 @@ The repository isolates logic structures into standard modular trees:
 ​src/main.js (Modular Event Triggers)
 
 // Clean document interaction handling demonstrated during the live masterclass
-import './style.css';
+```import './style.css';```
 
-document.querySelector('#app').innerHTML = `
+```document.querySelector('#app').innerHTML = `
   <div class="card">
     <h2>⚡ CODE SPARK Engine Active</h2>
     <button id="action-trigger">Launch Application</button>
   </div>
-`;
+`;```
 
-document.querySelector('#action-trigger').addEventListener('click', () => {
+```document.querySelector('#action-trigger').addEventListener('click', () => {
   console.log('⚡ Pipeline initialized successfully via Vite.');
   alert('Welcome to eDev Global! Building the future line by line.');
-});
+});```
 
-🌐 Production Deployment Flow
+##🌐 Production Deployment Flow
 
 ​Vite compiles optimized bundles cleanly to any cloud runtime environment:
 
