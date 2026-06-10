@@ -6,114 +6,141 @@ const Header = () => {
   const [mobileBtn, setMobileBtn] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
-  // Function to handle link click and close the menu
   const handleLinkClick = () => {
     setMobileBtn(false);
+    setShowMenu(false);
   };
 
   return (
-    <header className="relative z-50 code-section" id="header">
-      <nav className="container mx-auto py-10">
+    <header className="relative z-50 bg-white lg:bg-transparent" id="header">
+      <nav className="container mx-auto px-4 py-4 lg:py-10">
         <div className="flex items-center justify-between relative">
-          <div className="pl-6 text-xl font-bold">
+          
+          {/* Logo Branding Section */}
+          <div className="text-xl font-bold">
             <Link
               to="/"
-              className="flex justify-center items-center text-primary lg:text-3xl"
+              className="flex items-center text-primary lg:text-3xl"
               onClick={handleLinkClick}
             >
-              <img className="mr-2 w-12 h-12" src={codespark} />
-              <span>CODE SPARKING</span>
+              <img className="mr-2 w-10 h-10 lg:w-12 lg:h-12 object-contain" src={codespark} alt="CODESPARK Logo" />
+              <span className="tracking-tight">CODE<span className="text-dark-text"> SPARK</span></span>
             </Link>
           </div>
+
+          {/* Native Hamburger Trigger Button */}
           <button
             onClick={() => setMobileBtn(!mobileBtn)}
-            data-collapse-toggle="navigation-menu"
             type="button"
-            className="pr-6 text-dark-text lg:hidden"
+            className="p-2 text-gray-700 lg:hidden rounded-md focus:outline-none focus:ring-2 focus:ring-gray-200"
             aria-controls="navigation-menu"
-            aria-expanded="false"
-            aria-label="Navigation Menu"
+            aria-expanded={mobileBtn}
+            aria-label="Toggle Navigation Menu"
           >
-            <i
-              className="fa-regular fa-bars feather feather-menu"
-              aria-hidden="true"
-            ></i>
+            {mobileBtn ? (
+              // Close Icon when Mobile Menu is Active
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              // Hamburger Menu Icon when Mobile Menu is Inactive
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
+
+          {/* Main Navigation Matrix Container */}
           <div
             id="navigation-menu"
-            className={`absolute left-0 top-full mt-4 w-full bg-white pb-4 lg:static lg:mt-0 lg:flex flex-1 lg:items-center lg:justify-between lg:bg-transparent lg:pb-0 ${
-              mobileBtn ? "" : "hidden"
+            className={`absolute left-0 right-0 top-full mt-2 w-full bg-white shadow-xl rounded-b-xl border border-gray-100 p-6 z-50 lg:static lg:mt-0 lg:w-auto lg:bg-transparent lg:shadow-none lg:border-none lg:p-0 lg:flex lg:flex-1 lg:items-center lg:justify-between ${
+              mobileBtn ? "block" : "hidden"
             }`}
           >
-            <ul className="flex flex-col lg:px-6 lg:flex-row flex-1 lg:justify-center lg:items-center lg:space-y-0 lg:space-x-8">
-              <li className="flex items-center p-2 border-t border-gray-200 md:border-t-transparent md:p-0">
-                <Link className="cursor-pointer text-dark-text-color" to={"/"}>
+            <ul className="flex flex-col lg:flex-row flex-1 lg:justify-center lg:items-center gap-1 lg:gap-8">
+              <li className="border-b border-gray-100 lg:border-none">
+                <Link 
+                  className="block py-3 px-2 text-gray-700 hover:text-blue-600 font-medium transition duration-150" 
+                  to="/"
+                  onClick={handleLinkClick}
+                >
                   Home
                 </Link>
               </li>
-              <li className="flex items-center p-2 border-t border-gray-200 md:border-t-transparent md:p-0">
+              <li className="border-b border-gray-100 lg:border-none">
                 <Link
                   to="/webinars"
-                  className="cursor-pointer text-dark-text-color"
+                  className="block py-3 px-2 text-gray-700 hover:text-blue-600 font-medium transition duration-150"
+                  onClick={handleLinkClick}
                 >
                   Webinar
                 </Link>
               </li>
-              <li className="flex items-center p-2 border-t border-gray-200 md:border-t-transparent md:p-0">
-                <div className="group relative">
+              
+              {/* Responsive Dropdown Parent Element */}
+              <li className="border-b border-gray-100 lg:border-none">
+                <div className="w-full lg:relative group">
                   <button
                     onClick={() => setShowMenu(!showMenu)}
-                    className="flex w-full cursor-pointer flex-row items-center gap-1 text-dark-text lg:justify-center"
+                    className="flex w-full items-center justify-between lg:justify-center py-3 px-2 text-gray-700 hover:text-blue-600 font-medium transition duration-150"
                   >
                     <span>About Us</span>
-                    <i
-                      className="fa-regular fa-chevron-down ml-1 transition-['rotate'] lg:group-hover:rotate-[180deg]"
-                      aria-hidden="true"
-                    ></i>
+                    <svg 
+                      className={`w-4 h-4 ml-1 transform transition-transform duration-200 ${showMenu ? "rotate-180" : ""}`} 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
                   </button>
+                  
+                  {/* Dropdown Container Sub-Matrix Routing Blocks */}
                   <div
-                    className={`left-0 top-full z-50 ${
+                    className={`${
                       showMenu ? "block" : "hidden"
-                    } w-full text-black lg:absolute lg:w-[260px] lg:pt-2 lg:group-hover:block`}
+                    } bg-gray-50 rounded-lg p-2 mt-1 mb-2 space-y-1 lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-full lg:w-[240px] lg:bg-white lg:shadow-lg lg:border lg:border-gray-100 lg:p-1.5 lg:mt-2 lg:mb-0 lg:group-hover:block`}
                   >
-                    <div className="mt-2 bg-white p-1.5 lg:rounded-lg lg:border lg:border-gray-200 lg:shadow-sm">
-                      <Link
-                        className="block cursor-pointer border-b border-solid px-3 py-1.5 hover:bg-[#1900410a] lg:py-3 lg:font-medium"
-                        to="/about-us"
-                        onClick={handleLinkClick}
-                      >
-                        Our Mission &amp; Vision
-                      </Link>
-                      <Link
-                        className="block cursor-pointer px-3 py-1.5 hover:bg-[#1900410a] lg:py-3 lg:font-medium"
-                        to="/faq"
-                        onClick={handleLinkClick}
-                      >
-                        FAQ
-                      </Link>
-                    </div>
+                    <Link
+                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md font-medium transition duration-150"
+                      to="/about-us"
+                      onClick={handleLinkClick}
+                    >
+                      Our Mission &amp; Vision
+                    </Link>
+                    <Link
+                      className="block px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-100 rounded-md font-medium transition duration-150"
+                      to="/faq"
+                      onClick={handleLinkClick}
+                    >
+                      FAQ
+                    </Link>
                   </div>
                 </div>
               </li>
-              <li className="flex items-center p-2 border-t border-gray-200 md:border-t-transparent md:p-0">
+
+              <li>
                 <Link
                   to="/contact"
-                  className="text-dark-text"
+                  className="block py-3 px-2 text-gray-700 hover:text-blue-600 font-medium transition duration-150"
                   onClick={handleLinkClick}
                 >
                   Contact
                 </Link>
               </li>
             </ul>
-            <div className="flex flex-col mt-4 lg:flex-row items-center space-y-4 lg:mt-0 lg:space-y-0 lg:space-x-4 text-sm lg:text-base">
+
+            {/* Action Call Button Section Area */}
+            <div className="mt-4 pt-4 border-t border-gray-100 lg:mt-0 lg:pt-0 lg:border-none flex flex-col lg:flex-row items-center">
               <Link
                 to="/webinars"
-                className="text-blessing rounded bg-primary-button px-4 py-2 text-primary-button-text-color hover:bg-primary-button-hover"
+                className="w-full lg:w-auto text-center bg-blue-600 text-white rounded-md px-5 py-2.5 font-medium shadow-sm hover:bg-blue-700 active:scale-[0.98] transition dynamic-all duration-150"
                 onClick={handleLinkClick}
               >
                 Register Now
               </Link>
             </div>
+
           </div>
         </div>
       </nav>

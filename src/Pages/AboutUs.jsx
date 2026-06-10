@@ -17,14 +17,15 @@ const AboutUs = () => {
               <h3 className="text-2xl font-bold text-blue-600 mb-4 text-center">
                 Our Mission
               </h3>
-              <p className="text-gray-700 leading-relaxed">
-                <ul className="list-disc">
+              {/* 💻 FIXED: Changed from <p> to <div> */}
+              <div className="text-gray-700 leading-relaxed">
+                <ul className="list-disc pl-5"> {/* Added pl-5 so bullet points indent beautifully */}
                   <li className="mb-3">
                     To democratize technology creation by providing highly accessible, practical software engineering education. We enable individuals, young creators, and businesses to innovate and solve real-world problems by writing their own software, websites, and applications, regardless of their starting background.
                   </li>
                   <li className="mb-3">We aim to unlock the potential of anyone with an idea by breaking down complex syntax into simple, logical building blocks—making authentic software development universally attainable, scalable, and boundless.</li>
                 </ul>
-              </p>
+              </div>
             </div>
           </div>
 
@@ -33,20 +34,19 @@ const AboutUs = () => {
               <h3 className="text-2xl font-bold text-blue-600 mb-4 text-center">
                 Our Vision
               </h3>
-              <p className="text-gray-700 leading-relaxed">
-                <ul className="list-disc">                  
-                <li className="mb-3">To be a leading global platform for accessible coding education, fostering a world where modern technology is built and shaped by a highly diverse range of creators.
-                </li>
-             <li className="mb-3">
-                  
-​We envision a future where programming is no longer an intimidating barrier to entry, but a powerful skill that anyone can master. By bridging the gap between absolute beginners and advanced professional workflows, our learners will be at the forefront of the digital revolution—building robust, independent software solutions and driving technological progress in their communities and beyond.
-                </li>
-              <li className="mb-3">
-                
-​Why this shift matters for your brand: <br/>By focusing on real code made accessible rather than no-code, you position CODE SPARK as a serious, high-value tech academy. Parents will see this as a true long-term career investment for their kids, and advanced students will respect it as an authentic engineering community.
-              </li>
+              {/* 💻 FIXED: Changed from <p> to <div> */}
+              <div className="text-gray-700 leading-relaxed">
+                <ul className="list-disc pl-5"> {/* Added pl-5 so bullet points indent beautifully */}                 
+                  <li className="mb-3">To be a leading global platform for accessible coding education, fostering a world where modern technology is built and shaped by a highly diverse range of creators.
+                  </li>
+                  <li className="mb-3">
+                    We envision a future where programming is no longer an intimidating barrier to entry, but a powerful skill that anyone can master. By bridging the gap between absolute beginners and advanced professional workflows, our learners will be at the forefront of the digital revolution—building robust, independent software solutions and driving technological progress in their communities and beyond.
+                  </li>
+                  <li className="mb-3">
+                    <strong>Why this shift matters for your brand:</strong> <br/>By focusing on real code made accessible rather than no-code, you position CODE SPARK as a serious, high-value tech academy. Parents will see this as a true long-term career investment for their kids, and advanced students will respect it as an authentic engineering community.
+                  </li>
                 </ul>
-              </p>
+              </div>
             </div>
           </div>
         </div>

@@ -6,6 +6,8 @@ import AboutUs from "./Pages/AboutUs";
 import FAQ from "./Pages/FAQ";
 import Contact from "./Pages/Contact";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 import Footer from "./components/Footer";
 const App = () => {
   return (
@@ -15,6 +17,7 @@ const App = () => {
         <div className="bg-[#fff] backdrop-blur-md w-full h-full">
           <div>
             <BrowserRouter>
+              <ScrollToTop/>
               <Header />
               <Routes>
                 <Route path="/" element={<Teaching />} />
@@ -25,8 +28,10 @@ const App = () => {
               </Routes>
               <Footer />
             </BrowserRouter>
+            
           </div>
         </div>
+        <ScrollToTopButton />
       </div>
     </div>
   );

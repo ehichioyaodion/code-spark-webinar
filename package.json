@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "eruda": "^3.4.3",
     "firebase": "^11.3.1",
+    "flutterwave-react-v3": "^1.3.3",
     "react": "^19.0.0",
     "react-detect-offline": "^2.4.5",
     "react-dom": "^19.0.0",

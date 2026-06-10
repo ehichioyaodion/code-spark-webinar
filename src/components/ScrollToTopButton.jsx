@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button when scroll position is greater than a certain value (e.g., 300px)
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      // Triggers visibility the absolute microsecond the user scrolls past the top pixel
+      if (window.scrollY > 0) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -20,18 +20,22 @@ const ScrollToTopButton = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // For smooth scrolling animation
+      behavior: "smooth", 
     });
   };
 
   return (
     <div
-      className="fixed bottom-24 animate-bounce right-8 z-50 transition-opacity duration-500" // Position and animation
-      style={{ opacity: isVisible ? 1 : 0 }} // Conditional visibility
+      className={`fixed bottom-24 right-8 z-50 transition-all duration-300 ease-in-out ${
+        isVisible 
+          ? "opacity-100 translate-y-0 pointer-events-auto scale-100 animate-bounce" 
+          : "opacity-0 translate-y-4 pointer-events-none scale-75"
+      }`}
     >
       <button
         onClick={scrollToTop}
-        className="p-3 rounded-full bg-blue-500 hover:bg-blue-700 text-white shadow-sm focus:outline-none transition:transform duration-200 ease-in-out" // Button styles and animation
+        aria-label="Scroll back to top of page"
+        className="p-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg focus:outline-none hover:scale-110 active:scale-95 transition-transform duration-150 ease-in-out"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -45,8 +49,7 @@ const ScrollToTopButton = () => {
             strokeLinejoin="round"
             strokeWidth={2}
             d="M5 10l7-7m0 0l7 7m-7-7v18"
-          />{" "}
-          {/* Up arrow */}
+          />
         </svg>
       </button>
     </div>
