@@ -341,7 +341,7 @@ const Webinars = () => {
                 >
                   {Object.entries(currencyMapping).map(([key, value]) => (
                     <option key={key} value={key}>
-                      {value.countryName} ({value.currency} — {value.amount.toLocaleString()})
+                      {value.countryName} ({value.currency} {value.amount.toLocaleString()})
                     </option>
                   ))}
                 </select>

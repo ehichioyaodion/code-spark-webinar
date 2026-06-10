@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import codespark from "../assets/CODESPARKLOGO.png";
+import image1 from "../assets/KwameMensah.png"
+import image2 from "../assets/ChidiOkafor.png"
+import image3 from "../assets/AminaKamau.png"
 import { Link } from "react-router-dom";
 
 const Teaching = () => {
@@ -33,7 +36,7 @@ const Teaching = () => {
                     </div>
                     <div className="flex items-center pb-10">
                       <img
-                        src="https://media.gettyimages.com/id/1490764451/photo/headshot-portrait-of-confident-handsome-mature-middle-age-businessman-at-office.jpg?b=1&amp;s=612x612&amp;w=0&amp;k=20&amp;c=Oxn1hxRZ43vNbYcRlsKQs0Wa8zT344VOIJfGbd_qMtY="
+                        src={image1}
                         alt="Satisfied Participant"
                         className="mr-4 h-[72px] w-[72px] rounded-full object-cover"
                         data-landingsite-gallery-type="image"
@@ -43,7 +46,7 @@ const Teaching = () => {
                           className="fa-sharp fa-solid fa-quote-left relative -top-2 mr-1"
                           aria-hidden="true"
                         ></i>
-                        <p className="mb-2 inline text-lg text-dark-text">"The webinar opened my eyes to the possibilities of coding. Whether you're completely new or looking to refine your logic, it empowers you to bring ideas to life!"
+                        <p className="mb-2 inline text-lg text-dark-text"><span className="font-semibold text-dark-text">CODE SPARK</span> didn't waste time with dry theory. We jumped straight into real code layout structure on day one. Highly recommend for any beginner!
                         </p>
                         <i
                           className="fa-sharp fa-solid fa-quote-right relative -top-2 ml-1"
@@ -51,10 +54,10 @@ const Teaching = () => {
                         ></i>
                         <p className="">
                           <span className="font-semibold text-dark-text">
-                            Emily Turner
+                            Kwame Mensah
                           </span>
                           <span className="pl-2 font-semibold text-primary">
-                            (Aspiring App Developer)
+                            (Accra, Ghana)
                           </span>
                         </p>
                       </div>
@@ -157,7 +160,7 @@ const Teaching = () => {
                     </div>
                     <div className="flex items-center">
                       <img
-                        src="https://media.gettyimages.com/id/1309489745/photo/portrait-of-young-happy-indian-business-man-executive-looking-at-camera-eastern-male.jpg?b=1&amp;s=612x612&amp;w=0&amp;k=20&amp;c=K1pIuZ-758hZpczvQSLjxvyqeOwy5t5EklPn_ykBHfo="
+                        src={image3}
                         alt="Profile"
                         className="mr-4 h-[72px] w-[72px] rounded-full object-cover"
                         data-landingsite-gallery-type="image"
@@ -167,7 +170,7 @@ const Teaching = () => {
                           className="fa-sharp fa-solid fa-quote-left relative -top-2 mr-1"
                           aria-hidden="true"
                         ></i>
-                        <p className="mb-2 inline text-lg text-dark-text">This webinar was eye-opening! As a young creator, I never thought I could write real code. The guidance was incredibly clear and engaging!
+                        <p className="mb-2 inline text-lg text-dark-text">As someone with zero programming background, breaking things down into visual building blocks completely changed how I look at software development.
                         </p>
                         <i
                           className="fa-sharp fa-solid fa-quote-right relative -top-2 ml-1"
@@ -175,10 +178,10 @@ const Teaching = () => {
                         ></i>
                         <p>
                           <span className="font-semibold text-dark-text">
-                            Ava Mitchell
+                            Amina Kamau
                           </span>
                           <span className="pl-2 font-semibold text-primary">
-                            (Future App Innovator)
+                            (Nairobi, Kenya)
                           </span>
                         </p>
                       </div>
@@ -215,7 +218,7 @@ const Teaching = () => {
                     </div>
                     <div className="flex items-center">
                       <img
-                        src="https://media.gettyimages.com/id/2156062809/photo/headshot-closeup-portrait-middle-eastern-israel-businesswoman-business-lady-standing-isolated.jpg?b=1&amp;s=612x612&amp;w=0&amp;k=20&amp;c=mPEqaET5s98W_40DmBTRbYY5z0F-_1YkqdC4TCHJeig="
+                        src={image2}
                         alt="Profile"
                         className="mr-4 h-[72px] w-[72px] rounded-full object-cover"
                         data-landingsite-gallery-type="image"
@@ -235,10 +238,10 @@ const Teaching = () => {
                         ></i>
                         <p>
                           <span className="font-semibold text-dark-text">
-                            Liam Johnson
+                            Chidi Okafor
                           </span>
                           <span className="pl-2 font-semibold text-primary">
-                            (Aspiring Creator)
+                            (Lagos, Nigeria)
                           </span>
                         </p>
                       </div>
