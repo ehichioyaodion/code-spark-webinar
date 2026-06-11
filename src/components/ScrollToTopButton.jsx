@@ -5,8 +5,8 @@ const ScrollToTopButton = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // Triggers visibility the absolute microsecond the user scrolls past the top pixel
-      if (window.scrollY > 0) {
+      // Triggers visibility once the user scrolls deep enough into the viewport layout
+      if (window.scrollY > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -26,20 +26,23 @@ const ScrollToTopButton = () => {
 
   return (
     <div
-      className={`fixed bottom-24 right-8 z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed bottom-24 right-6 md:right-8 z-50 transition-all duration-300 ease-in-out ${
         isVisible 
-          ? "opacity-100 translate-y-0 pointer-events-auto scale-100 animate-bounce" 
-          : "opacity-0 translate-y-4 pointer-events-none scale-75"
+          ? "opacity-100 translate-y-0 pointer-events-auto scale-100" 
+          : "opacity-0 translate-y-6 pointer-events-none scale-75"
       }`}
     >
       <button
         onClick={scrollToTop}
         aria-label="Scroll back to top of page"
-        className="p-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg focus:outline-none hover:scale-110 active:scale-95 transition-transform duration-150 ease-in-out"
+        className="relative p-3.5 rounded-xl bg-orange-600 text-white shadow-xl shadow-orange-600/20 focus:outline-none hover:bg-orange-700 hover:scale-110 active:scale-95 transition-all duration-200 ease-in-out group"
       >
+        {/* Subtle decorative pulsing halo effect on hover */}
+        <span className="absolute inset-0 rounded-xl bg-orange-500 opacity-0 group-hover:animate-ping group-hover:opacity-20 transition-opacity"></span>
+        
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
+          className="h-5 w-5 transform group-hover:-translate-y-0.5 transition-transform duration-200"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -47,7 +50,7 @@ const ScrollToTopButton = () => {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
+            strokeWidth={2.5}
             d="M5 10l7-7m0 0l7 7m-7-7v18"
           />
         </svg>

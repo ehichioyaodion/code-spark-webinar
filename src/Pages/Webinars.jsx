@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import codespark from "../assets/CODESPARKLOGO.png";
 
 // Master configuration matrix with Dialing Codes, Max Formatted Lengths, Patterns, and Tailored Payment Options
@@ -202,7 +202,7 @@ const Webinars = () => {
       tx_ref: `webinar-${Date.now()}`,
       amount: geoBilling.amount,
       currency: geoBilling.currency,
-      payment_options: geoBilling.paymentOptions || 'card,mobilemoney,ussd,banktransfer,account,googlepay,applepay,qr', // Dynamically loaded channel string
+      payment_options: geoBilling.paymentOptions || 'card,mobilemoney,ussd,banktransfer,account,googlepay,applepay,qr',
       customer: {
         email: formData.email.trim(),
         phone_number: completeInternationalPhone,
@@ -211,7 +211,7 @@ const Webinars = () => {
       customizations: {
         title: formData.webinarTitle,
         description: 'Registration fee for access link extraction',
-        logo: {codespark},
+        logo: codespark,
       },
       callback: (response) => {
         if (window.history.state?.modalOpen) window.history.back();
@@ -238,7 +238,6 @@ const Webinars = () => {
       let rawDigits = value.replace(/\D/g, "");
       const targetConfig = currencyMapping[selectedCountryKey] || currencyMapping.DEFAULT;
 
-      // Automatically omit leading 0 if keyed in by instinct (except for special mappings)
       if (rawDigits.startsWith("0") && targetConfig.exactDigits !== 11 && selectedCountryKey !== "CI") {
         rawDigits = rawDigits.substring(1);
       }
@@ -258,10 +257,8 @@ const Webinars = () => {
     let templateErrors = { fullName: "", email: "", phone: "" };
     let validationFailure = false;
     const activeConfig = currencyMapping[selectedCountryKey] || currencyMapping.DEFAULT;
-    
     const plainCleanDigits = formData.phone.replace(/\s/g, "");
 
-    // 1. Full Name Validation
     if (!formData.fullName.trim()) {
       templateErrors.fullName = "Please enter your full name.";
       validationFailure = true;
@@ -270,7 +267,6 @@ const Webinars = () => {
       validationFailure = true;
     }
 
-    // 2. Email Address Validation
     if (!formData.email.trim()) {
       templateErrors.email = "Please enter your email address.";
       validationFailure = true;
@@ -282,12 +278,11 @@ const Webinars = () => {
       }
     }
 
-    // 3. Phone Number Structural Validation
     if (!plainCleanDigits) {
       templateErrors.phone = "Please enter your phone number.";
       validationFailure = true;
     } else if (!activeConfig.pattern.test(plainCleanDigits)) {
-      templateErrors.phone = `This phone number structure does not match a valid network provider in ${activeConfig.countryName}. Please check for errors.`;
+      templateErrors.phone = `Valid structural match error for network routing channels inside ${activeConfig.countryName}.`;
       validationFailure = true;
     }
 
@@ -300,85 +295,112 @@ const Webinars = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-[#ffffff] to-light-background-color font-sans antialiased">
-      <div className="flex justify-center items-center py-10">
-        <div className="bg-white p-8 w-full max-w-lg rounded-lg shadow-md">
-          <h2 className="text-3xl font-medium mb-4 text-center text-gray-800">
-            Webinar Registration
-          </h2>
-          <form className="space-y-5" onSubmit={handleSubmit} noValidate>
+    <div className="bg-gradient-to-b from-[#ffffff] to-light-background-color font-sans antialiased min-height-screen py-16 px-6">
+      <div className="flex justify-center items-center">
+        <div className="bg-white p-8 md:p-10 w-full max-w-xl rounded-3xl shadow-lg shadow-gray-200/80 border border-gray-100">
+          
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-sm font-medium mb-3 select-none">
+              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+              Live Tech Seat Reservation
+            </div>
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
+              Webinar Registration
+            </h2>
+          </div>
+
+          <form className="space-y-6" onSubmit={handleSubmit} noValidate>
             
             {/* Full Name Field */}
             <div>
-              <label htmlFor="fullName" className="block text-gray-700 text-sm font-medium mb-1">Full Name</label>
-              <input type="text" id="fullName" placeholder="Your Full Name" className={`border-b-2 w-full py-2 px-1 text-gray-700 focus:outline-none transition duration-200 ${errors.fullName ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'}`} required value={formData.fullName} onChange={handleInputChange} />
-              {errors.fullName && <p className="text-red-500 text-xs mt-1 font-medium">{errors.fullName}</p>}
+              <label htmlFor="fullName" className="block text-gray-800 text-sm font-semibold mb-2">Full Name</label>
+              <input 
+                type="text" 
+                id="fullName" 
+                placeholder="Your Full Name" 
+                className={`w-full bg-light-background-color border rounded-xl py-3 px-4 text-gray-800 focus:outline-none transition-all duration-200 ${errors.fullName ? 'border-red-500 focus:ring-2 focus:ring-red-500/20' : 'border-gray-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500'}`} 
+                required 
+                value={formData.fullName} 
+                onChange={handleInputChange} 
+              />
+              {errors.fullName && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.fullName}</p>}
             </div>
 
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-gray-700 text-sm font-medium mb-1">Email Address</label>
-              <input type="email" id="email" placeholder="your.email@example.com" className={`border-b-2 w-full py-2 px-1 text-gray-700 focus:outline-none transition duration-200 ${errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-blue-500'}`} required value={formData.email} onChange={handleInputChange} />
-              {errors.email && <p className="text-red-500 text-xs mt-1 font-medium">{errors.email}</p>}
+              <label htmlFor="email" className="block text-gray-800 text-sm font-semibold mb-2">Email Address</label>
+              <input 
+                type="email" 
+                id="email" 
+                placeholder="your.email@example.com" 
+                className={`w-full bg-light-background-color border rounded-xl py-3 px-4 text-gray-800 focus:outline-none transition-all duration-200 ${errors.email ? 'border-red-500 focus:ring-2 focus:ring-red-500/20' : 'border-gray-200 focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500'}`} 
+                required 
+                value={formData.email} 
+                onChange={handleInputChange} 
+              />
+              {errors.email && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.email}</p>}
             </div>
 
-            {/* Location Selector */}
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 shadow-sm">
-              <div className="flex items-center space-x-2 mb-2">
-                <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+            {/* Location Selector (Excluding DEFAULT option securely) */}
+            <div className="bg-orange-50/40 border border-orange-100 rounded-2xl p-4">
+              <div className="flex items-center space-x-2 mb-2.5">
+                <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
-                <label className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                <label className="text-xs font-bold uppercase tracking-wider text-orange-800 select-none">
                   Where will you be watching from?
                 </label>
               </div>
               <div className="relative">
                 <select 
-                  className="appearance-none bg-white border border-gray-300 text-gray-800 font-medium text-sm rounded-lg block w-full pl-3 pr-10 py-2.5 shadow-sm transition duration-200 ease-in-out cursor-pointer hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="appearance-none bg-white border border-gray-200 text-gray-800 font-semibold text-sm rounded-xl block w-full pl-4 pr-10 py-3 shadow-sm transition duration-200 ease-in-out cursor-pointer hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
                   value={selectedCountryKey} 
                   onChange={handleCountrySelectionChange}
                 >
-                  {Object.entries(currencyMapping).map(([key, value]) => (
-                    <option key={key} value={key}>
-                      {value.countryName} ({value.currency} {value.amount.toLocaleString()})
-                    </option>
-                  ))}
+                  {Object.entries(currencyMapping)
+                    .filter(([key]) => key !== "DEFAULT")
+                    .map(([key, value]) => (
+                      <option key={key} value={key}>
+                        {value.countryName} ({value.currency} {value.amount.toLocaleString()})
+                      </option>
+                    ))
+                  }
                 </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path>
                   </svg>
                 </div>
               </div>
             </div>
 
-            {/* Custom Prefix Locked Phone Input */}
+            {/* Prefix-Locked Phone Input */}
             <div>
-              <label htmlFor="phone" className="block text-gray-700 text-sm font-medium mb-1">Phone Number</label>
-              <div className="flex items-center w-full border-b-2 transition duration-200 focus-within:border-blue-500 border-gray-300">
-                <span className="text-gray-400 font-medium text-base pr-2 select-none py-2 px-1 border-r border-gray-200 bg-gray-50/50 rounded-t-sm">
+              <label htmlFor="phone" className="block text-gray-800 text-sm font-semibold mb-2">Phone Number</label>
+              <div className={`flex items-center w-full bg-light-background-color border rounded-xl overflow-hidden transition-all duration-200 focus-within:ring-2 focus-within:ring-orange-500/20 focus-within:border-orange-500 ${errors.phone ? 'border-red-500' : 'border-gray-200'}`}>
+                <span className="text-gray-500 font-bold text-base px-4 py-3 border-r border-gray-200 bg-gray-50 select-none">
                   {geoBilling.dialCode}
                 </span>
                 <input 
                   type="tel" 
                   id="phone" 
                   placeholder={geoBilling.phonePlaceholder}
-                  className="w-full py-2 pl-3 pr-1 text-gray-700 focus:outline-none tracking-widest font-medium bg-transparent" 
+                  className="w-full py-3 px-4 text-gray-800 focus:outline-none tracking-widest font-semibold bg-transparent" 
                   required 
                   value={formData.phone} 
                   onChange={handleInputChange} 
                 />
               </div>
-              {errors.phone && <p className="text-red-500 text-xs mt-1.5 font-medium leading-relaxed">{errors.phone}</p>}
+              {errors.phone && <p className="text-red-500 text-xs mt-2 font-medium leading-relaxed">{errors.phone}</p>}
             </div>
 
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded-md transition duration-300 shadow-md font-semibold tracking-wide"
+                className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3.5 px-4 rounded-xl transition duration-200 shadow-md shadow-orange-600/10 active:scale-[0.99] select-none"
               >
-                Register Now
+                Proceed to Secure Verification
               </button>
             </div>
           </form>
@@ -387,34 +409,39 @@ const Webinars = () => {
 
       {/* Payment Confirmation Modal Overlay */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg p-8 max-w-md w-full">
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm flex justify-center items-center z-50 p-4 animate-fade-in">
+          <div className="bg-white rounded-3xl p-6 md:p-8 max-w-md w-full shadow-2xl border border-gray-100 transform transition-all scale-100">
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-semibold text-gray-900">Complete Payment</h3>
-              <button onClick={() => { if (window.history.state?.modalOpen) window.history.back(); setShowModal(false); }} className="text-gray-500 hover:text-gray-700">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              <h3 className="text-2xl font-black text-gray-900 tracking-tight">Complete Registration</h3>
+              <button 
+                onClick={() => { if (window.history.state?.modalOpen) window.history.back(); setShowModal(false); }} 
+                className="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
               </button>
             </div>
 
             <div className="mb-6">
-              <h4 className="font-medium text-gray-800 mb-2">Order Summary</h4>
-              <div className="bg-gray-50 p-4 rounded-md">
-                <div className="flex justify-between mb-2">
-                  <span className="font-medium mr-2">Webinar:</span>
-                  <span className="text-right text-sm text-gray-600">{formData.webinarTitle}</span>
+              <h4 className="font-bold text-gray-400 text-xs uppercase tracking-widest mb-3 select-none">Order Summary</h4>
+              <div className="bg-light-background-color border border-gray-100 p-5 rounded-2xl space-y-3">
+                <div className="flex flex-col gap-1">
+                  <span className="font-bold text-xs text-orange-600 uppercase tracking-wider">Academy Track</span>
+                  <span className="text-gray-800 font-bold leading-snug">{formData.webinarTitle}</span>
                 </div>
-                <div className="flex justify-between font-semibold border-t pt-2 mt-2">
-                  <span>Total Due:</span>
-                  <span className="text-blue-600">{geoBilling.label}</span>
+                <div className="flex justify-between items-center font-black text-lg border-t border-gray-200/60 pt-4 mt-2">
+                  <span className="text-gray-900 text-sm font-bold">Total Due:</span>
+                  <span className="text-orange-600 font-black">{geoBilling.label}</span>
                 </div>
               </div>
             </div>
 
             <button
               onClick={triggerFlutterwaveCheckout}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md transition duration-300 flex justify-center items-center font-semibold tracking-wide shadow"
+              className="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-3.5 px-4 rounded-xl transition duration-200 flex justify-center items-center tracking-wide shadow-md shadow-orange-600/10 active:scale-[0.99] select-none"
             >
-              Pay Now
+              Pay Now via Flutterwave
             </button>
           </div>
         </div>

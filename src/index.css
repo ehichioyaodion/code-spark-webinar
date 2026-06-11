@@ -3,85 +3,145 @@
 @tailwind utilities;
 
 :root {
-  --accent-color: #ff9800;
-  --accent2-color: #f57c00;
-  --accent3-color: #ffca28;
-  --accent4-color: #ffe082;
-  --primary-color: #346cb0;
-  --dark-text-color: #212121;
-  --gray-text-color: #737373;
-  --button-padding-x: 16px;
-  --button-padding-y: 12px;
+  /* Premium Orange Accents */
+  --accent-color: #ea580c;         /* Tailwind orange-600 */
+  --accent2-color: #c2410c;        /* Tailwind orange-700 */
+  --accent3-color: #ff9800;        
+  --accent4-color: #fff7ed;        /* Tailwind orange-50 */
+  
+  /* Modern Dark & Gray Neutrals */
+  --primary-color: #ea580c;
+  --dark-text-color: #0f172a;      /* Tailwind slate-900 */
+  --gray-text-color: #4b5563;      /* Tailwind gray-600 */
   --light-text-color: #ffffff;
-  --dark-border-color: #0d47a1;
-  --light-border-color: #c8d6e5;
-  --button-rounded-radius: 8px;
-  --dark-background-color: #111111;
-  --light-background-color: #eaf3ff;
-  --medium-background-color: #cde2ff;
-  --primary-button-bg-color: #346cb0;
+  
+  /* Layout Sizing & Borders */
+  --button-padding-x: 24px;
+  --button-padding-y: 12px;
+  --dark-border-color: #ea580c;
+  --light-border-color: #f3f4f6;   /* Tailwind gray-100 */
+  --button-rounded-radius: 12px;   /* Modernized roundness */
+  
+  /* System Background Variations */
+  --dark-background-color: #0f172a;
+  --light-background-color: #f9fafb; /* Off-white container fluid */
+  --medium-background-color: #f3f4f6;
+  
+  /* Core Brand Button Matrix Hooks */
+  --primary-button-bg-color: #ea580c;
   --primary-button-text-color: #ffffff;
-  --secondary-button-bg-color: #e3e3e3;
-  --secondary-button-text-color: #346cb0;
-  --primary-button-hover-bg-color: #295792;
+  --secondary-button-bg-color: #fff7ed;
+  --secondary-button-text-color: #ea580c;
+  
+  --primary-button-hover-bg-color: #c2410c;
   --primary-button-hover-text-color: #ffffff;
-  --secondary-button-hover-bg-color: #c7c7c7;
-  --secondary-button-hover-text-color: #346cb0;
+  --secondary-button-hover-bg-color: #ffedd5;
+  --secondary-button-hover-text-color: #c2410c;
 }
 
 @layer base {
   html {
     font-family: "Poppins", sans-serif;
     scroll-behavior: smooth;
+    height: 100%;
+    min-height: 100%;
   }
 
   body {
-    /* background-color:#252423; */
-    background-color: #1e2023;
+    background-color: #ffffff; /* Clean white canvas background to rhyme with layouts */
     margin: 0;
-    min-height: 100vh;
-    -webkit-user-select: none; /* Safari */
-  -ms-user-select: none;     /* IE 10 and IE 11 */
-  user-select: none;         /* Standard syntax for Chrome, Firefox, Opera */
-  
-  /* Optional: Prevents the blue highlight box when tapping on mobile */
-  -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    min-height: 100%; /* Uses scaling percentages to prevent layout collapse in mobile desktop emulation */
+    color: var(--dark-text-color);
+    
+    /* Strict Content Protection Safely Handled across text elements instead of root container breaking */
+    -webkit-user-select: auto;
+    user-select: auto;
+    
+    /* Prevents default tap highlight flash boxes on mobile */
+    -webkit-tap-highlight-color: transparent;
   }
 
+  /* Safe Content Copy Protection Layer targeting structural data presentation nodes */
+  form, h2, h3, h4, p, span, label, input, select, button {
+    -webkit-user-select: none;  
+    -ms-user-select: none;      
+    user-select: none;          
+  }
+
+  /* CUSTOM MINI WEB KIT SCROLLBAR TRACK */
   ::-webkit-scrollbar {
-    height: 10px;
-    width: 4px;
+    height: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    border-radius: 6px;
+    background: #ffffff;
   }
 
   ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    
-    height: 80px;
-    background-color: var(--dark-border-color);
+    border-radius: 20px;
+    height: 60px;
+    background-color: #e5e7eb; /* Subtle gray-200 slider track */
+    border: 1.5px solid #ffffff;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #d1d5db; /* gray-300 on interaction hover */
   }
 
+  /* SYSTEM INTERACTIVE UTILITY PATH BINDINGS */
   .fixedNav svg {
     transition: all 0.2s ease-in-out;
   }
 
   .fixedNav a:hover > svg {
-    stroke: #1d3557;
+    stroke: var(--accent-color);
   }
+  
   .active {
-    background-color: #f1faee;
+    background-color: var(--accent4-color);
+    color: var(--accent-color);
   }
+  
   .active-svg svg {
-    stroke: #1d3557;
+    stroke: var(--accent-color);
   }
+  
   .subscribe:hover > .subscribeIcon svg {
-    stroke: #1d3557;
+    stroke: var(--accent-color);
   }
 
+  /* CSS MODAL LOCK ENGINE: Prevents trailing blanks or layout jumping on view shifts */
   .modal-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
+  }
+}
+
+/* HARDWARE ACCELERATED MODAL TRANSITIONS */
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (min-width: 640px) {
+  .animate-scale-up {
+    animation: scaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 }

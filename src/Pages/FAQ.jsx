@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const FAQ = () => {
-  // State to track which accordion item is currently open
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleAccordion = (index) => {
@@ -10,54 +9,44 @@ const FAQ = () => {
 
   const faqData = [
     {
-      question: "What is CODE SPARK?",
+      question: "How is the CODE SPARK program structured?",
       answer:
-        "CODE SPARK is a live, fast-paced technical workshop designed to break down the barriers of software engineering. We teach absolute beginners, kids, and tech enthusiasts how to build real websites, apps, and software from scratch by understanding the fundamental logic of clean, practical code.",
+        "Instead of a brief, rushed session, CODE SPARK is an ongoing, periodic corporate training academy. We break down complex software mechanics into interactive weekly sprint blocks, taking you completely from raw document bones up to real-world cloud deployment pipelines.",
     },
     {
-      question: "Who is this Webinar For?",
+      question: "Who leads the technical training sessions?",
       answer:
-        "This webinar is engineered for two distinct groups:\n\n• Absolute Beginners & Young Learners: Anyone (including teenagers and kids) who wants to learn how computers think and start writing real code through highly visual, instant-feedback micro-projects.\n\n• Advanced Enthusiasts: Aspiring developers and creators who want to see how a clean project structure, modular code, and modern tools can speed up their deployment workflows compared to heavy, restrictive no-code editors.",
+        "All core instructional tracks, technical live builds, and architectural reviews are delivered directly by active industry engineers—bringing professional full-stack engineering expertise and specialized mentorship directly into your learning dashboard.",
     },
     {
-      question: "What Will I Learn in This Webinar?",
+      question: "What is the schedule for our live sessions?",
       answer:
-        "You will learn the core building blocks of modern web and application development. We will write live HTML (the structural bones), CSS (the layout and style), and JavaScript (the interactive logic) to build a fully functional application. By the end of the 60 minutes, you will know how to deploy and host your code live on the web for anyone in the world to see.",
+        "The CODE SPARK academy operates on a predictable periodic rhythm. Each training week includes a primary live structural code-along lab, a dedicated live interactive debugging sandbox to handle errors, and continuous chat channel help inside our private community groups.",
     },
     {
-      question: "Do I Need Any Prior Coding Knowledge?",
+      question: "Do I need any prior programming knowledge to join?",
       answer:
-        "Not at all! This session is built specifically to handle absolute beginners. We don't start with dry, complicated computer science textbooks—we jump straight into interactive code blocks that make sense from the very first line. If you can type on a keyboard, you can follow along perfectly.",
+        "None at all! The CODE SPARK curriculum is explicitly engineered to handle absolute beginners. We skip dry textbook theory and dive straight into interactive, visual blocks of code that give you clear, real-time feedback from day one.",
     },
     {
-      question: "What Tools and Platforms Will Be Covered?",
+      question: "What tools and environments will we use?",
       answer:
-        "To keep things simple, we won't make you install heavy desktop software or struggle with system configurations. We will be coding live inside highly optimized, browser-based coding sandboxes (like StackBlitz, CodePen, or Replit). Everything runs straight from your internet browser.",
+        "To keep our onboarding simple and fast, we won't require heavy local computer terminal configs. We write real, functional layout and logical strings directly inside highly optimized, cloud-native development environments that run instantly from any standard web browser.",
     },
     {
-      question: "Is the Webinar Live or Recorded?",
+      question: "How long do I get access to the materials and community?",
       answer:
-        "This is a 100% Live interactive online session hosted via Google Meet. You will be able to watch our expert instructors code in real-time, ask questions in the chat, and get immediate debugging help.",
+        "Your registration locks in full access to your specific active training cohort cycle. This covers all live streaming links, project source files, and continuous ongoing placement within the private academy community channels where you can submit code revisions and collaborate long after your track wraps up.",
     },
     {
-      question: "How Do I Register and Claim the Discount?",
+      question: "How do I register and secure the launch discount?",
       answer:
-        "Registration is fully automated. Click the 'Register Now' button to open our secure payment gateway. You can easily process your registration using Mobile Money (MoMo) or a bank card.\n\n⚠️ IMPORTANT DIRECTION:\nOnce your payment is successful, please do not close your browser! The system will automatically redirect you straight into our private WhatsApp Cohort Group where starter assets are hosted.",
+        "Our onboarding system is fully automated. Simply click the 'Register Now' button to access the secure payment gateway, where you can safely process your placement token using Mobile Money (MoMo) or a local bank card.\n\n⚠️ IMPORTANT DIRECTION:\nOnce your transaction completes, please do not close your terminal window! The payment gateway will automatically pass your session over to redirect you right into our private WhatsApp Cohort channel.",
     },
     {
-      question: "Is There a Cost to Attend the Webinar?",
+      question: "Is there an entry fee for the training program?",
       answer:
-        "Yes. To ensure a highly committed group of learners, entry requires a baseline investment. By using the promotional launch code, you can claim an executive 70% off discount, locking in your slot for exactly ₵100 GHS instead of the standard tier fee.",
-    },
-    {
-      question: "Will There Be Any Support After the Webinar?",
-      answer:
-        "Yes! When you register, you join the private eDev starter community group. After the live stream ends, you can use this group to share your modified code projects, get feedback from peers, ask technical questions, and access additional source files or future bootcamp opportunities.",
-    },
-    {
-      question: "What are the Technical Requirements to Join?",
-      answer:
-        "All you need is a device with a stable internet connection capable of running video conferencing software (Google Meet). While you can watch and learn from a smartphone or tablet, we highly recommend using a computer or keyboard-enabled device if you want to actively type out the code strings live along with the instructor!",
+        "Yes. To keep our learning tracks highly accountable and maintain small, high-quality peer cohorts, entry requires an asset commitment. By applying the current launch promo, you secure a full promotional discount, locking in your active cohort access pass for exactly ₵100 GHS instead of the standard tier cost.",
     },
   ];
 
@@ -69,13 +58,13 @@ const FAQ = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-sm font-medium mb-4">
             <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
-            Live Coding Masterclass
+            CODE SPARK Training Academy
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-950 mb-4">
             Frequently Asked Questions
           </h2>
           <p className="text-gray-600 text-base md:text-lg max-w-xl mx-auto">
-            Everything you need to know about navigating the CODE SPARK experience.
+            Everything you need to know about navigating the training curriculum designed by our engineering team.
           </p>
         </div>
 
